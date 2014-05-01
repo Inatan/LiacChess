@@ -33,6 +33,9 @@
 		</Compiler>
 		<Unit filename="bin/bot.h" />
 		<Unit filename="board.h" />
+		<Unit filename="bot.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

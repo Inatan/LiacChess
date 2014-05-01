@@ -6,7 +6,7 @@
 #define PRETAS -1 // RACISMO
 
 char board[SIZE];
-int 50moves;
+int fiftymoves;
 int winnner;
 int draw;
 int blackInfractions;
