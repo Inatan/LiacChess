@@ -1,0 +1,11 @@
+{
+    "board"             : STRING,
+    "enpassant"         : COORDENADA,
+    "who_moves"         : -1 OU 1,
+    "bad_move"          : BOOLEAN,
+    "white_infractions" : INTEGER,
+    "black_infractions" : INTEGER,
+    "winner"            : -1, 0 OU 1,
+    "50moves"           : BOOLEAN,
+    "draw"              : BOOLEAN
+}
