@@ -31,11 +31,19 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Jogada.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Jogada.h" />
 		<Unit filename="bin/bot.h" />
 		<Unit filename="board.h" />
 		<Unit filename="bot.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="cJSON.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cJSON.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
