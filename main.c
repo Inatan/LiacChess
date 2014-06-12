@@ -47,6 +47,7 @@ BOARD conectar(char *name,BOARD *Board)
 {
 
     int tamanho;
+    char cor;
     char retorno[10000];
     printf("\nInitialising Winsock...");
     if (WSAStartup(MAKEWORD(2,2),&wsa) != 0)
@@ -67,7 +68,17 @@ BOARD conectar(char *name,BOARD *Board)
 
     server.sin_addr.s_addr = inet_addr("127.0.0.1");
     server.sin_family = AF_INET;
-    server.sin_port = htons( 50100 );
+    while(cor!= 'b' && cor!='p')
+    {
+        printf("\nEscolha a cor para jogar( b- brancas, p- pretas)\n");
+        cor=getchar();
+        cor=tolower(cor);
+        if(cor=='b')
+            server.sin_port = htons( 50100 );
+        if(cor=='p')
+            server.sin_port = htons( 50200 );
+    }
+
 
     //Connect to remote server
     if (connect(s , (struct sockaddr *)&server , sizeof(server)) < 0)
@@ -96,6 +107,7 @@ BOARD conectar(char *name,BOARD *Board)
         Board=NULL;
         return *Board;
     }
+    int i;
     retorno[tamanho]='\0';
     puts("Reply received\n");
     saida=cJSON_Parse(retorno);
@@ -109,7 +121,8 @@ BOARD conectar(char *name,BOARD *Board)
     Board->draw=cJSON_GetObjectItem(saida,"draw")->valueint;
     Board->badmove=cJSON_GetObjectItem(saida,"bad_move")->valueint;
     Board->winner= cJSON_GetObjectItem(saida,"winner")->valueint;
-    Board->board=cJSON_GetObjectItem(saida,"board")->valuestring;
+    for(i=0;i<BOARD_SIZE;i++)
+        Board->board[i]=cJSON_GetObjectItem(saida,"board")->valuestring[i];
     Board->whoMoves=cJSON_GetObjectItem(saida,"who_moves")->valueint;
     return *Board;
 }
@@ -145,6 +158,7 @@ BOARD enviaPosicao(int fromX, int fromY,int toX,int toY,BOARD *Board)
         Board=NULL;
         return *Board;
     }
+    int i;
     retorno[tamanho]='\0';
     saida=cJSON_Parse(retorno);
     name=cJSON_Print(saida);
@@ -156,7 +170,8 @@ BOARD enviaPosicao(int fromX, int fromY,int toX,int toY,BOARD *Board)
     Board->draw=cJSON_GetObjectItem(saida,"draw")->valueint;
     Board->badmove=cJSON_GetObjectItem(saida,"bad_move")->valueint;
     Board->winner= cJSON_GetObjectItem(saida,"winner")->valueint;
-    Board->board=cJSON_GetObjectItem(saida,"board")->valuestring;
+    for(i=0;i<BOARD_SIZE;i++)
+        Board->board[i]=cJSON_GetObjectItem(saida,"board")->valuestring[i];
     Board->whoMoves=cJSON_GetObjectItem(saida,"who_moves")->valueint;
     return *Board;
 }

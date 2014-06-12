@@ -3,10 +3,11 @@
 #define FALSE !TRUE
 #define BRANCAS 1
 #define PRETAS -1 // RACISMO
+#define BOARD_SIZE 64
 
 typedef struct Board
 {
-    char *board;
+    char board[BOARD_SIZE];
     int fiftymoves;
     int winner;
     int draw;
