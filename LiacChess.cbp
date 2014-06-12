@@ -31,6 +31,9 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Linker>
+			<Add library="..\..\..\..\..\Program Files (x86)\CodeBlocks\MinGW\lib\WS2_32.LIB" />
+		</Linker>
 		<Unit filename="Jogada.c">
 			<Option compilerVar="CC" />
 		</Unit>
