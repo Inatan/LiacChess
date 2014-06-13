@@ -34,15 +34,10 @@
 		<Linker>
 			<Add library="..\..\..\..\..\Program Files (x86)\CodeBlocks\MinGW\lib\WS2_32.LIB" />
 		</Linker>
-		<Unit filename="Jogada.c">
+		<Unit filename="board.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Jogada.h" />
-		<Unit filename="bin/bot.h" />
 		<Unit filename="board.h" />
-		<Unit filename="bot.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="cJSON.c">
 			<Option compilerVar="CC" />
 		</Unit>

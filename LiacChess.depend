@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1402601011 source:c:\users\inatan\documents\github\liacchess\main.c
+1402671596 source:c:\users\inatan\documents\github\liacchess\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -32,7 +32,7 @@
 
 1402536671 source:c:\users\inatan\documents\github\liacchess\bot.c
 
-1402600161 c:\users\inatan\documents\github\liacchess\board.h
+1402672100 c:\users\inatan\documents\github\liacchess\board.h
 	<stdio.h>
 
 1398951541 source:c:\users\inatan\documents\github\liacchess\jogada.c
@@ -52,4 +52,8 @@
 	<limits.h>
 	<ctype.h>
 	"cJSON.h"
+
+1402677525 source:c:\users\inatan\documents\github\liacchess\board.c
+	<stdio.h>
+	"board.h"
 

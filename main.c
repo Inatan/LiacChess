@@ -5,6 +5,7 @@
 #include<winsock2.h>
 #include "board.h"
 #include "cJSON.h"
+
 #pragma comment(lib,"ws2_32.lib") //Winsock Library
 
 BOARD enviaPosicao(int fromX, int fromY,int toX,int toY,BOARD *Board);
@@ -46,6 +47,7 @@ int main ()
 BOARD conectar(char *name,BOARD *Board)
 {
 
+    BITBOARD BitBoard;
     int tamanho;
     char cor;
     char retorno[10000];
@@ -124,6 +126,9 @@ BOARD conectar(char *name,BOARD *Board)
     for(i=0;i<BOARD_SIZE;i++)
         Board->board[i]=cJSON_GetObjectItem(saida,"board")->valuestring[i];
     Board->whoMoves=cJSON_GetObjectItem(saida,"who_moves")->valueint;
+    int whoMoves=Board->whoMoves;
+    printf("%d\n",whoMoves);
+    BitBoard=BoardParser(whoMoves,Board->board);
     return *Board;
 }
 
@@ -173,5 +178,7 @@ BOARD enviaPosicao(int fromX, int fromY,int toX,int toY,BOARD *Board)
     for(i=0;i<BOARD_SIZE;i++)
         Board->board[i]=cJSON_GetObjectItem(saida,"board")->valuestring[i];
     Board->whoMoves=cJSON_GetObjectItem(saida,"who_moves")->valueint;
+    int whoMoves=Board->whoMoves;
+    BoardParser(whoMoves,Board->board);
     return *Board;
 }
