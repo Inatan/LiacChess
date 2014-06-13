@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<math.h>
 #define NULL_BOARD 0x0000000000000000
 #define TRUE 1
 #define FALSE !TRUE
@@ -39,7 +40,9 @@ typedef struct a_board
     U64 allyRooks[ROOK_NUM];
 }BITBOARD;
 
+void DumpBitBoard(BITBOARD BitBoard);
+void print_board(U64 board);
 BITBOARD InitBitBoard(BITBOARD *BitBoard);
 BITBOARD BoardParserBrancos(char board[64],BITBOARD *BitBoard);
 BITBOARD BoardParserPretos(char board[64],BITBOARD *BitBoard);
-BITBOARD BoardParser(int *whoMoves, char Board[64]);
+BITBOARD BoardParser(int whoMoves, char Board[64]);

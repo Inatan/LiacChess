@@ -32,8 +32,9 @@
 
 1402536671 source:c:\users\inatan\documents\github\liacchess\bot.c
 
-1402672100 c:\users\inatan\documents\github\liacchess\board.h
+1402680982 c:\users\inatan\documents\github\liacchess\board.h
 	<stdio.h>
+	<math.h>
 
 1398951541 source:c:\users\inatan\documents\github\liacchess\jogada.c
 	"Jogada.h"
@@ -53,7 +54,7 @@
 	<ctype.h>
 	"cJSON.h"
 
-1402677525 source:c:\users\inatan\documents\github\liacchess\board.c
+1402681019 source:c:\users\inatan\documents\github\liacchess\board.c
 	<stdio.h>
 	"board.h"
 
