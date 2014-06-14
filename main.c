@@ -20,6 +20,7 @@ int main ()
     // long long int val=pow(10,64);
 //    WSADATA wsa;
     BOARD Board;
+    int saida[4];
 
     //struct sockaddr_in *server;
     char *name="",retorno[10000];
@@ -28,16 +29,18 @@ int main ()
     int tamanho;
     while(Board.winner==0 && Board.draw==0)
     {
-        if( Board.whoMoves==1)
-        {
-            Board= enviaPosicao(0,0,0,1,&Board);
-            Board= enviaPosicao(0,1,0,0,&Board);
-        }
-        else
-        {
-            Board= enviaPosicao(7,0,7,1,&Board);
-            Board= enviaPosicao(7,1,7,0,&Board);
-        }
+        BITBOARD bitB = BoardParser(whoMoves,Board.board);
+
+        max_move(bitB, 4);
+        print_board(bitB.allyBoard);
+        print_board(finalBoard.allyBoard);
+        //DumpBitBoard(bitB);
+
+        //printf("FINAL\n");
+        //DumpBitBoard(finalBoard);
+        PegarCoordenadas(bitB, finalBoard,saida);
+        printf("Jogada: %d,%d - %d,%d\n",saida[0],saida[1],saida[2],saida[3]);
+        Board = enviaPosicao(saida[0],saida[1],saida[2],saida[3],&Board);
     }
     name=NULL;
 
@@ -72,7 +75,7 @@ BOARD conectar(char *name,BOARD *Board)
     server.sin_family = AF_INET;
     while(cor!= 'b' && cor!='p')
     {
-        printf("\nEscolha a cor para jogar( b- brancas, p- pretas)\n");
+        printf("\nEscolha a cor para jogar( b- brancas 50100 , p- pretas 50200 )\n");
         cor=getchar();
         cor=tolower(cor);
         if(cor=='b')

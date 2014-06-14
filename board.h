@@ -40,9 +40,18 @@ typedef struct a_board
     U64 allyRooks[ROOK_NUM];
 }BITBOARD;
 
+int whoMoves;
+BITBOARD finalBoard;
+
+
+void debug(int depth, float newValue);
+int max_move(BITBOARD board, int depth);
+int min_move(BITBOARD board, int depth);
 void DumpBitBoard(BITBOARD BitBoard);
 void print_board(U64 board);
 BITBOARD InitBitBoard(BITBOARD *BitBoard);
 BITBOARD BoardParserBrancos(char board[64],BITBOARD *BitBoard);
 BITBOARD BoardParserPretos(char board[64],BITBOARD *BitBoard);
 BITBOARD BoardParser(int whoMoves, char Board[64]);
+void PegarCoordenadas(BITBOARD BitBoardAtual, BITBOARD BitBoardFuturo, int * saida);
+int *PegarCooredenadas(BITBOARD *BitBoardAtual, BITBOARD *BitBoardFuturo);

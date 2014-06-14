@@ -7,13 +7,16 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/Liac ´[[" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/Liac" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>
+				<Linker>
+					<Add library="..\..\..\..\..\MinGW\lib\libws2_32.a" />
+				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/Liac ´[[" prefix_auto="1" extension_auto="1" />
@@ -25,14 +28,17 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add library="..\..\..\..\..\MinGW\lib\libws2_32.a" />
 				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-O3" />
 			<Add option="-Wall" />
 		</Compiler>
 		<Linker>
-			<Add library="..\..\..\..\..\Program Files (x86)\CodeBlocks\MinGW\lib\WS2_32.LIB" />
+			<Add option="-static-libgcc -static-libstdc++" />
+			<Add library="..\..\..\..\..\MinGW\lib\libws2_32.a" />
 		</Linker>
 		<Unit filename="board.c">
 			<Option compilerVar="CC" />
